@@ -1,6 +1,6 @@
 import pygame
 from scripts.entities import Basic_Surf
-from math import floor
+from math import floor, ceil
 
 
 class Board_Tilemap:
@@ -57,11 +57,12 @@ class Board_Tilemap:
 
     def pre_drop(self, colour):
         self.m_pos = pygame.mouse.get_pos()[0]
-        self.render_pos = Basic_Surf(self.game, self.full_surf, 'game').render_pos
+        self.render_pos = Basic_Surf(self.game, self.full_surf, 'game').render_pos[0]
         self.dummy_marker = self.game.assets[colour + '_marker']
         
         #raw x
-        self.dummy_marker_x = min(self.m_pos - self.render_pos[0], self.full_surf.get_width() - self.tile_size)
+        self.dummy_marker_x = min(self.m_pos - self.render_pos, self.full_surf.get_width() - self.tile_size)
+        print(self.m_pos - self.render_pos)
         self.dummy_marker_x = max(self.dummy_marker_x, 0)
         
         #grid x

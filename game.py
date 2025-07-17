@@ -6,7 +6,7 @@ from scripts.board import Board_Tilemap
 from scripts.marker import Marker, Yellow_Marker, Red_Marker
 from scripts.bot import Bot
 
-win_screen_size = pygame.Vector2(1000, 800)*0.8
+win_screen_size = pygame.Vector2(1000, 800)
 dis_screen_size = (1000, 800)
 tile_size = 80
 marker_drop = 1.5
